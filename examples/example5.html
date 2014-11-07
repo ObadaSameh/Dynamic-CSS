@@ -1,0 +1,83 @@
+<html>
+
+<head>
+
+    <title>Example 5</title>
+    <style>
+            
+        @-webkit-keyframes test{
+            
+            0%{
+                background : red;
+            }
+            50%{
+                background:green;
+            }
+            100%{
+                background : blue;
+            }
+        }
+        
+        
+            .item{
+                margin: 1px;
+                width:100px;
+                height:100px;
+                display:block;
+                background: lightblue;
+                float:left;
+            }
+
+    </style>
+
+    <script src="../jquery.js"></script>
+    <script src="../dcss.js"></script>
+
+</head>
+<body>
+
+<div id='container' style="width:600px;">
+    
+    <div id="s1" class="item"></div>
+    <div id="s2" class="item"></div>
+    <div id="s3" class="item"></div>
+    <div id="s4" class="item"></div>
+    <div id="s5" class="item"></div>
+    
+    
+</div>
+
+    
+<div style='float:top;display:block;'>
+    
+    <button  onclick=" apply();" >Apply</button>
+    
+
+</div>
+    
+<script>
+
+
+function apply(){
+
+$('#container').children().filter('div').dcss(
+    {   
+        animation : 'test <dur>s 0s ease-in-out alternate infinite '
+    },
+    { 
+        dur   : function(i,el,c){return 1 + Math.random() * 5;},
+    });
+    
+}; 
+
+</script>
+
+
+
+ 
+
+
+</body>
+
+
+</html>

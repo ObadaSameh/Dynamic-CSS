@@ -1,0 +1,90 @@
+<html>
+
+<head>
+
+    <title>Example 3</title>
+    <style>
+
+            .item{
+                margin: 1px;
+                width:100px;
+                height:100px;
+                display:block;
+                background: lightblue;
+                float:left;
+            }
+
+    </style>
+
+    <script src="../jquery.js"></script>
+    <script src="../dcss.js"></script>
+
+</head>
+<body>
+
+<div id='container' style="width:600px;">
+    
+    <div id="s1" class="item"></div>
+    <div id="s2" class="item"></div>
+    <div id="s3" class="item"></div>
+    <div id="s4" class="item"></div>
+    <div id="s5" class="item"></div>
+    <div id="s6" class="item"></div>
+    <div id="s7" class="item"></div>
+    <div id="s8" class="item"></div>
+    <div id="s9" class="item"></div>
+    <div id="s10" class="item"></div>
+    <div id="s11" class="item"></div>
+    <div id="s12" class="item"></div>
+    <div id="s13" class="item"></div>
+    <div id="s14" class="item"></div>
+    <div id="s15" class="item"></div>
+    <div id="s16" class="item"></div>
+    <div id="s17" class="item"></div>
+    <div id="s18" class="item"></div>
+    <div id="s19" class="item"></div>
+    <div id="s20" class="item"></div>
+    <div id="s21" class="item"></div>
+    <div id="s22" class="item"></div>
+    <div id="s23" class="item"></div>
+    <div id="s24" class="item"></div>
+    <div id="s25" class="item"></div>
+    
+</div>
+
+    
+<div style='float:top;display:block;'>
+    
+    <button  onclick=" play();" >Play</button>
+    
+
+</div>
+    
+<script>
+
+
+function play(){
+
+ $('#container').children().filter('div').dcss(
+    {   
+    transform : 'translate(<transX>%,<transY>%)  scale(.5,.5)',
+    transition : 'all 1s <delay>s linear' 
+    },
+    { 
+        delay  : function(i,el,c){ return i * .1;},
+        transX : function(){ return 50 - Math.random()*100;},
+        transY : function(){ return 50 - Math.random()*100;}
+    });
+}; 
+
+</script>
+
+
+
+ 
+
+
+</body>
+
+
+</html>

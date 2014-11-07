@@ -1,0 +1,89 @@
+<html>
+
+<head>
+
+    <title>Example 6</title>
+    <style>
+            
+         
+        
+        
+            .item{
+                margin: 1px;
+                width:100px;
+                height:100px;
+                display:block;
+                background: lightblue;
+                float:left;
+            }
+
+    </style>
+
+    <script src="../jquery.js"></script>
+    <script src="../dcss.js"></script>
+
+</head>
+<body>
+
+<div id='container' style="width:600px;">
+    
+    <div id="s1" class="item"></div>
+    <div id="s2" class="item"></div>
+    <div id="s3" class="item"></div>
+    <div id="s4" class="item"></div>
+    <div id="s5" class="item"></div>
+    
+    
+</div>
+
+    
+<div style='float:top;display:block;'>
+    
+    <button  onclick=" apply();" >Apply</button>
+    <button  onclick=" rewind();" >Rewind</button>
+    
+
+</div>
+    
+<script>
+
+
+function apply(){
+
+$('#container').children().filter('div').dcss(
+    {   
+    height : '400px',
+    transition : 'all 1s 0s ease<in><out>'
+    },
+    { 
+        in : function(i,el,c){return (i % 2 == 0) ? '-in':''; },
+        out : function(i,el,c){return (i % 2 == 1) ? '-out':''; }
+    });
+    
+}; 
+
+function rewind(){
+
+$('#container').children().filter('div').dcss(
+    {   
+    height : '100px',
+    transition : 'all 1s 0s ease<in><out>'
+    },
+    { 
+        in : function(i,el,c){return (i % 2 == 0) ? '-in':''; },
+        out : function(i,el,c){return (i % 2 == 1) ? '-out':''; }
+    });
+    
+}; 
+
+</script>
+
+
+
+ 
+
+
+</body>
+
+
+</html>
